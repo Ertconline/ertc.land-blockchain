@@ -1,0 +1,11 @@
+{
+  "initialPeers": [
+    "ws://rpc.ertc.land"
+  ],
+
+  "appEntry": "./app.js",
+  
+  "appConfig": {
+    "deployedContractAddress": 2
+  }
+}

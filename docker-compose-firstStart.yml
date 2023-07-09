@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+  pg_blockchain_db:
+    image: postgres:latest
+    restart: always
+    command: -p ${DB_PORT:-5432}
+    environment:
+      POSTGRES_USER: "${DB_USER:-ertc}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD:-f23$Er!wsdWsA}"
+      POSTGRES_DB: "${DB_NAME:-ertc}"
+      PGDATA: /var/lib/postgresql/data
+    volumes: 
+      - ertc_blockchain_postgres_data:/var/lib/postgresql/data
+    networks:
+      - ertc_blockchain_net
+
+  blockchain:
+    build: .
+    container_name: ertc-blockchain
+    command: sh firstStart.sh
+    volumes:
+      - ertc_runtime:/app/ERTC/runtime
+    restart: always
+    ports:
+      - "6801:6801"
+      - "6802:6802"
+    environment:
+      - DB_NAME=${DB_NAME:-ertc}
+      - DB_USER=${DB_USER:-ertc}
+      - DB_PASSWORD=${DB_PASSWORD:-f23$Er!wsdWsA}
+      - DB_HOST=${DB_HOST:-pg_blockchain_db}
+      - DB_PORT=${DB_PORT:-5432}
+    networks:
+      - ertc_blockchain_net
+
+volumes:
+  ertc_runtime:
+  ertc_blockchain_postgres_data:
+  
+networks:
+  ertc_blockchain_net:
+    driver: bridge

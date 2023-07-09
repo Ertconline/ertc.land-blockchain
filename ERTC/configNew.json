@@ -1,0 +1,10 @@
+{
+  "initialPeers": [
+  ],
+
+  "appEntry": "./app.js",
+  
+  "appConfig": {
+    "deployedContractAddress": 2
+  }
+}

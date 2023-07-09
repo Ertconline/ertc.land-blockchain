@@ -1,0 +1,24 @@
+{
+  "name": "iz3-bitcore-crypto",
+  "version": "1.0.3",
+  "description": "IZZZIO cryptography plugin based on bitcore-lib",
+  "main": "index.js",
+  "homepage": "https://izzz.io",
+  "dependencies": {
+    "bitcore-message": "^1.0.4"
+  },
+  "author": "Andrey Nedobylskiy",
+  "license": "GPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Izzzio/iz3-bitcore-crypto.git"
+  },
+  "keywords": [
+    "blockchain",
+    "crypto",
+    "izzzio",
+    "izzz",
+    "iz3",
+    "bignet"
+  ]
+}
